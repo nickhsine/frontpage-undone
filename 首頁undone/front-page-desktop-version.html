@@ -22,9 +22,17 @@
         /* 網站字體 */
         body {
             font-family: 'Roboto', 'Noto Sans TC', sans-serif;
-            /*margin: 0;*/
-            width: 1440px;
-            height: 3728px;
+            /* 清掉瀏覽器預設的 margin */
+            margin: 0;
+
+            /* 為瀏覽器的增加背景色 */
+            background-color: #FBEEEA;
+
+            /* 不需要在 body 上限制寬高 */
+            /* 高度是元素自己會長出來 */
+            /* 寬度用瀏覽器的寬度 */
+            /*width: 1440px;*/
+            /*height: 3728px;*/
         }
 
 
@@ -38,14 +46,23 @@
         /* 首頁各區域block：尺寸、背景色等等 */
 
         .header-block {
-            width: 1440px;
+            width: 100%;
             height: 80px;
             background-color: white;
             /*margin-bottom:-80px;*/
             /*display: inline;*/
-            position: absolute;
-            top: -80px;
+            /* position: absolute; */
+            position: fixed;
+            /* top: -80px; */
+            left: 0;
 
+            z-index: 1;
+        }
+
+        .header {
+            width: 1440px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .featured-block {
@@ -326,8 +343,8 @@
             margin-top: 50px;
         }
 
-        .footer-button-bar{
-            width:656px;
+        .footer-button-bar {
+            width: 656px;
             margin-left: 413px;
             margin-right: 413px;
             margin-top: 43px;
@@ -338,18 +355,27 @@
             margin-left: 42px;
 
         }
+
+        /* 桌機版最大的寬度為 1440px */
+        /* 若是瀏覽器大於 1440px 的話，將內容置在瀏覽器的中間 */
+        .desktop-version {
+            width: 1440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
 
 <body>
 
     <!-- desktop version start -->
-    <div>
+    <div class="desktop-version">
 
 
         <!-- 👻 header按鈕和固定待補 -->
         <!-- ▼聲影少女 header -->
 
+        <!-- header-block 是 position: fixed; -->
         <div class="header-block">
             <div class="header">
                 <!--  <div class="statusbar-justified">
@@ -366,154 +392,152 @@
                 <img src="./asset/icon-header-button-5.svg" class="">
 
             </div>
-
-            <!-- ▲聲影少女 header -->
-
-
+        </div>
+        <!-- ▲聲影少女 header -->
 
 
-            <!-- ▼本日精選 Daily Featured__carousel-->
+        <!-- ▼本日精選 Daily Featured__carousel-->
+        <!-- featured-block 是 position: absolute; -->
+        <div class="featured-block">
 
-            <div class="featured-block">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
 
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel"
-                    data-bs-interval="false">
-
-                    <!--底部標示所在文章的圓點按鈕-->
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-                            aria-label="Slide 4"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
-                            aria-label="Slide 5"></button>
-                    </div>
-
-                    <!-- Carousel照片-->
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="./asset/img-1.jpg" class="d-block w-100" alt="image 1">
-                            <div class="featured-main-title-1">從雲端情人看愛「人」的勇氣</div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="false">
-                            <img src="./asset/img-2.jpg" class="d-block w-100" alt="image 2">
-                            <div class="featured-main-title-2">當失去和擁有同樣困難：《世界上最爛的人》裡的現代女性困境</div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="false">
-                            <img src="./asset/img-3.jpg" class="d-block w-100" alt="image 3">
-                            <div class="featured-main-title-2">沒玩過遊戲也能共感！《英雄聯盟：奧術》帶你窺探英雄內心世界</div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="false">
-                            <img src="./asset/img-4.jpg" class="d-block w-100" alt="image 4">
-                            <div class="featured-main-title-2">奈沙馬蘭超級英雄電影十年馬拉松最終章——Glass異裂</div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="false">
-                            <img src="./asset/img-5.jpeg" class="d-block w-100" alt="image 5">
-                            <div class="featured-main-title-1">《玩具總動員 4》玩具是誰?</div>
-                        </div>
-                    </div>
-
-                    <!--上下張按鈕-->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-
+                <!--底部標示所在文章的圓點按鈕-->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
                 </div>
 
-                <!-- ▲ 本日精選 Daily Featured__carousel-->
+                <!-- Carousel照片-->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./asset/img-1.jpg" class="d-block w-100" alt="image 1">
+                        <div class="featured-main-title-1">從雲端情人看愛「人」的勇氣</div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="false">
+                        <img src="./asset/img-2.jpg" class="d-block w-100" alt="image 2">
+                        <div class="featured-main-title-2">當失去和擁有同樣困難：《世界上最爛的人》裡的現代女性困境</div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="false">
+                        <img src="./asset/img-3.jpg" class="d-block w-100" alt="image 3">
+                        <div class="featured-main-title-2">沒玩過遊戲也能共感！《英雄聯盟：奧術》帶你窺探英雄內心世界</div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="false">
+                        <img src="./asset/img-4.jpg" class="d-block w-100" alt="image 4">
+                        <div class="featured-main-title-2">奈沙馬蘭超級英雄電影十年馬拉松最終章——Glass異裂</div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="false">
+                        <img src="./asset/img-5.jpeg" class="d-block w-100" alt="image 5">
+                        <div class="featured-main-title-1">《玩具總動員 4》玩具是誰?</div>
+                    </div>
+                </div>
+
+                <!--上下張按鈕-->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
 
             </div>
 
-            <!-- ▼最新推薦文章區 Latest Recommended article -->
-            <!-- 👻卡片文章還沒放進去 -->
+            <!-- ▲ 本日精選 Daily Featured__carousel-->
 
-            <div class="recommended-block">
+        </div>
 
-                <!-- ↓ 電影文章 -->
-                <div>
-                    <img src="./asset/icon-film.svg" class="recommended-tag-svg2" alt="電影">
+        <!-- ▼最新推薦文章區 Latest Recommended article -->
+        <!-- 👻卡片文章還沒放進去 -->
 
-                    <div class="recommended-article-block">
+        <div class="recommended-block">
 
-                        <div class="recommended-article-card"></div>
-                        <div class="recommended-article-card"></div>
-                        <div class="recommended-article-card"></div>
+            <!-- ↓ 電影文章 -->
+            <div>
+                <img src="./asset/icon-film.svg" class="recommended-tag-svg2" alt="電影">
 
-                    </div>
+                <div class="recommended-article-block">
 
-                    <img src="./asset/icon-check-all.svg" class="recommended-tag-svg1 recommended-tag-to-tag" alt="看更多">
+                    <div class="recommended-article-card"></div>
+                    <div class="recommended-article-card"></div>
+                    <div class="recommended-article-card"></div>
+
                 </div>
 
-                <!-- ↓ 影集文章 -->
-                <div>
-                    <img src="./asset/icon-series.svg" class="recommended-tag-svg2" alt="影集">
-
-                    <div class="recommended-article-block">
-
-                        <div class="recommended-article-card"></div>
-                        <div class="recommended-article-card"></div>
-                        <div class="recommended-article-card"></div>
-
-                    </div>
-
-                    <img src="./asset/icon-check-all.svg" class="recommended-tag-svg1" alt="看更多">
-                </div>
-
-                <!-- ▲ 最新推薦文章區 Latest Recommended article  -->
-
-
+                <img src="./asset/icon-check-all.svg" class="recommended-tag-svg1 recommended-tag-to-tag" alt="看更多">
             </div>
-            <!-- ▼ 你的聲影-->
-            <!-- 👻 只有先排版，翻卡特效還沒做 -->
-            <div class="your-voice-block">
-                <div>
 
-                    <img src="./asset/icon-your-voice.svg" class="your-voice-tag-svg" alt="你的聲影">
-                    <div class=" your-voice-description"> 又遇到選擇障礙不知道要看什麼影劇了嗎?點擊卡片抽一張適合今天的你的聲影</div>
-                    <div class="your-voice-card-block">
-                        <img src="./asset/Icon-your-voice-card.svg" class="your-voice-card" alt="沒得看qq">
-                        <img src="./asset/Icon-your-voice-card.svg" class="your-voice-card" alt="沒得看qq">
-                        <img src="./asset/Icon-your-voice-card.svg" class="your-voice-card" alt="沒得看qq">
-                        <img src="./asset/Icon-your-voice-card.svg" class="your-voice-card" alt="沒得看qq">
-                    </div>
-                    <img src="./asset/icon-pick-for-you.svg" class="your-voice-pick-button button" alt="少女幫你選">
+            <!-- ↓ 影集文章 -->
+            <div>
+                <img src="./asset/icon-series.svg" class="recommended-tag-svg2" alt="影集">
+
+                <div class="recommended-article-block">
+
+                    <div class="recommended-article-card"></div>
+                    <div class="recommended-article-card"></div>
+                    <div class="recommended-article-card"></div>
 
                 </div>
 
-
+                <img src="./asset/icon-check-all.svg" class="recommended-tag-svg1" alt="看更多">
             </div>
-            <!-- ▲ 你的聲影 -->
 
-            <div class="footer-block">
+            <!-- ▲ 最新推薦文章區 Latest Recommended article  -->
 
-                <div class="footer-button-bar">
-                    <img src="./asset/icon-footer-button-1.svg" class="footer-button-svg" alt="首頁">
-                    <img src="./asset/icon-footer-button-2.svg" class="footer-button-svg" alt="電影">
-                    <img src="./asset/icon-footer-button-3.svg" class="footer-button-svg" alt="影集">
-                    <img src="./asset/icon-footer-button-4.svg" class="footer-button-svg" alt="錄音">
-                    <img src="./asset/icon-footer-button-5.svg" class="footer-button-svg" alt="你的聲影">
-                    <img src="./asset/icon-footer-button-6.svg" class="footer-button-svg" alt="歡愉少女">
+
+        </div>
+        <!-- ▼ 你的聲影-->
+        <!-- 👻 只有先排版，翻卡特效還沒做 -->
+        <div class="your-voice-block">
+            <div>
+
+                <img src="./asset/icon-your-voice.svg" class="your-voice-tag-svg" alt="你的聲影">
+                <div class=" your-voice-description"> 又遇到選擇障礙不知道要看什麼影劇了嗎?點擊卡片抽一張適合今天的你的聲影</div>
+                <div class="your-voice-card-block">
+                    <img src="./asset/Icon-your-voice-card.svg" class="your-voice-card" alt="沒得看qq">
+                    <img src="./asset/Icon-your-voice-card.svg" class="your-voice-card" alt="沒得看qq">
+                    <img src="./asset/Icon-your-voice-card.svg" class="your-voice-card" alt="沒得看qq">
+                    <img src="./asset/Icon-your-voice-card.svg" class="your-voice-card" alt="沒得看qq">
                 </div>
-
-                <img src="./asset/icon-footer.svg" class="footer-svg" alt="聲影少女版權">
-
+                <img src="./asset/icon-pick-for-you.svg" class="your-voice-pick-button button" alt="少女幫你選">
 
             </div>
 
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-                crossorigin="anonymous"></script>
+
+        </div>
+        <!-- ▲ 你的聲影 -->
+
+        <div class="footer-block">
+
+            <div class="footer-button-bar">
+                <img src="./asset/icon-footer-button-1.svg" class="footer-button-svg" alt="首頁">
+                <img src="./asset/icon-footer-button-2.svg" class="footer-button-svg" alt="電影">
+                <img src="./asset/icon-footer-button-3.svg" class="footer-button-svg" alt="影集">
+                <img src="./asset/icon-footer-button-4.svg" class="footer-button-svg" alt="錄音">
+                <img src="./asset/icon-footer-button-5.svg" class="footer-button-svg" alt="你的聲影">
+                <img src="./asset/icon-footer-button-6.svg" class="footer-button-svg" alt="歡愉少女">
+            </div>
+
+            <img src="./asset/icon-footer.svg" class="footer-svg" alt="聲影少女版權">
+
+
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
